@@ -1,0 +1,21 @@
+{% macro renderTextField(field) %}
+    <div class="form__group">
+        {{ field.label(class_="form__label") }}
+        {{ field(class_="form__field") }}
+
+        {% for each in field.errors %}
+            <span class="form__error">{{ each }}</span>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro renderAreaField(field) %}
+    <div class="form__group">
+        {{ field.label(class_="form__label") }}
+        {{ field(rows=4, class_="form__field", style="resize: none") }}
+
+        {% for each in field.errors %}
+            <span class="form__error">{{ each }}</span>
+        {% endfor %}
+    </div>
+{% endmacro %}

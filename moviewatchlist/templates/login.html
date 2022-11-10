@@ -1,0 +1,31 @@
+{% from 'macros/fields.html' import renderTextField %}
+{% extends 'layout.html' %}
+
+{% block head_content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}" />
+{% endblock %}
+
+{% block main_content %}
+    <form class="form" name="login" method="post" novalidate>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <span class="form__flash form__flash--{{category}}"> {{ message }}</span>
+            {% endfor %}
+        {% endwith %}
+
+        <div class="form__container">
+            {{ form.hidden_tag() }}
+
+            {{ renderTextField(form.email) }}
+            {{ renderTextField(form.password) }}
+
+            <span class="form__email">
+                Don't have an account? <a href="{{ url_for('movieLibrary.register') }}" class="form__link">Register</a>
+            </span>
+
+            <div>
+                {{ form.submit(class_="button button--form") }}
+            </div>
+        </div>
+    </form>
+{% endblock %}

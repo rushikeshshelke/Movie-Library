@@ -1,0 +1,8 @@
+{
+    "logFormat":"[Ts:%(asctime)s]\t[App:%(name)s]\t[Lvl:%(levelname)s]\t[Msg:%(message)s]\t[Func:%(funcName)s]",
+    "maxSize":30720000,
+    "rotateCount":5,
+    "appName":"Movie-WatchList",
+    "dateFormat":"%Y-%m-%d %H-%M-%S",
+    "filename":"app.log"
+}
